@@ -1,12 +1,18 @@
 import React, { useContext, useEffect } from 'react';
+import { useQuery } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../userContext/UserContext';
+import styles from './WoodWarehouse.module.css';
+import { GET_WOOD_PRICES } from '../../constants/graphQlContants';
 
 export interface IWoodWarehouseProps {}
 
 export const WoodWarehouse: React.FC<IWoodWarehouseProps> = () => {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
+  const { data } = useQuery(GET_WOOD_PRICES);
+
+  console.log(data);
 
   useEffect(() => {
     if (!user) navigate('/');
