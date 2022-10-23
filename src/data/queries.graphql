@@ -1,0 +1,17 @@
+query user {
+  user {
+    id
+    username
+    firstName
+    lastName
+  }
+}
+
+query woodPrices {
+    woodPrices {
+        __typename
+        id
+        woodSpecies
+        price
+    }
+}

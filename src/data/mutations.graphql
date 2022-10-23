@@ -1,0 +1,28 @@
+mutation login($username: String!, $password: String!) {
+  login(username: $username, password: $password) {
+    id
+    username
+    firstName
+    lastName
+  }
+}
+
+mutation logout {
+  logout
+}
+
+mutation addWoodPrice($woodSpecies: String!, $price: Float!) {
+  addWoodPrice(woodSpecies: $woodSpecies, price: $price) {
+    id
+    woodSpecies
+    price
+  }
+}
+
+mutation deleteWoodPrice($id: Int!) {
+  deleteWoodPrice(id: $id) {
+    id
+    woodSpecies
+    price
+  }
+}

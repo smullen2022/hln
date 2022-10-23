@@ -1,0 +1,26 @@
+# This schema is for reference and is used to generate helpful querying utility hooks in the src/data/generated directory
+
+type Query {
+  user: User
+  woodPrices: [Wood!]
+}
+
+type Mutation {
+  login(username: String!, password: String!): User!
+  logout: Boolean
+  addWoodPrice(woodSpecies: String!, price: Float!): Wood!
+  deleteWoodPrice(id: Int!): [Wood!]
+}
+
+type User {
+  id: String!
+  username: String!
+  firstName: String!
+  lastName: String!
+}
+
+type Wood {
+  id: Int!
+  woodSpecies: String!
+  price: Float!
+}
