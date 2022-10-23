@@ -1,12 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from './userContext/UserContext';
+import { UserContext } from '../userContext/UserContext';
 
 export interface IWoodWarehouseProps {}
 
 export const WoodWarehouse: React.FC<IWoodWarehouseProps> = () => {
-  // After implementing the login functionality determine if the user is logged in via the 'user'
-  // query and set the user variable here to cause the instructions for the next step to be displayed.
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
 

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from './userContext/UserContext';
+import { UserContext } from '../userContext/UserContext';
 
 type UserInfo = {
   username: string;
@@ -12,7 +12,6 @@ export const LoginForm = () => {
     username: '',
     password: ''
   });
-  // Implement the login functionality so after logging in the user can be read using the 'user' query.
   const { user, logOn } = useContext(UserContext);
   const navigate = useNavigate();
   const submit = (e: any) => {

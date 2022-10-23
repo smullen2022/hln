@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styles from './App.module.css';
-import { WoodWarehouse } from '../components/WoodWarehouse';
-import { LoginForm } from '../components/LoginForm';
-import LoggedInUser from '../components/LoggedInUser';
+import { WoodWarehouse } from '../components/woodWarehouse/WoodWarehouse';
+import { LoginForm } from '../components/loginForm/LoginForm';
+import LoggedInUser from '../components/loggedInUser/LoggedInUser';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './client';
 import { UserContextProvider } from '../components/userContext/UserContextProvider';
