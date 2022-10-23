@@ -1,0 +1,19 @@
+.formBody {
+  margin: auto;
+  max-width: 350px;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 1px 1px 4px #d1cdcd;
+}
+.formFields {
+  padding: 1rem 2rem 0 2rem; 
+}
+.formFields h3 {
+  margin-top: 0;
+}
+.formFooter {
+  background: #ededed;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}

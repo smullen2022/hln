@@ -1,6 +1,4 @@
-import { useMutation } from '@apollo/client';
 import React, { useContext } from 'react';
-import { LOGOUT } from '../../constants/graphQlContants';
 import { UserContext } from '../userContext/UserContext';
 
 interface ILoggedInUserProps {}
@@ -10,7 +8,7 @@ const LoggedInUser: React.FunctionComponent<ILoggedInUserProps> = () => {
   return user ? (
     <div>
       <span>{`${user.firstName} ${user.lastName}`}</span>
-      <button onClick={() => logOut && logOut()}>logOut</button>
+      <button onClick={() => logOut && logOut()}>log out</button>
     </div>
   ) : null;
 };

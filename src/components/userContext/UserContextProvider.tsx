@@ -6,7 +6,7 @@ import { UserContext } from './UserContext';
 import { LoginMutationVariables, User } from '../../types/graphql';
 
 export const UserContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [login, { loading, error, data: loginData }] = useMutation(LOGIN);
+  const [login, { error, data: loginData }] = useMutation(LOGIN);
   const [logout] = useMutation(LOGOUT);
   const { data } = useQuery(USER);
   const [user, setUser] = useState<User>();
@@ -26,10 +26,9 @@ export const UserContextProvider: React.FC<PropsWithChildren> = ({ children }) =
       user,
       logOn,
       logOut,
-      loading,
-      error: !!error
+      error: error?.message
     };
-  }, [user, loading, error, login, logout]);
+  }, [user, error, login, logout]);
 
   return <UserContext.Provider value={userData}>{children}</UserContext.Provider>;
 };

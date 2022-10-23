@@ -5,8 +5,7 @@ interface UserContextProps {
   user?: User;
   logOn?: (loginInfo: LoginMutationVariables) => void;
   logOut?: () => void;
-  loading?: boolean;
-  error?: boolean;
+  error?: string;
 }
 
 export const UserContext = createContext<UserContextProps>({});
