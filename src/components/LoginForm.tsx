@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { LOGIN } from '../constants/graphQlContants';
+import { UserContext } from './userContext/UserContext';
 
 type UserInfo = {
   username: string;
@@ -8,16 +9,15 @@ type UserInfo = {
 };
 
 export const LoginForm = () => {
-  // Implement the login functionality so after logging in the user can be read using the 'user' query.
   const [loginInfo, setLoginInfo] = useState<UserInfo>({
     username: '',
     password: ''
   });
-  const [login, { data, loading, error }] = useMutation(LOGIN);
-  const user = undefined;
+  // Implement the login functionality so after logging in the user can be read using the 'user' query.
+  const { user, logOn } = useContext(UserContext);
   const submit = (e: any) => {
     e.preventDefault();
-    login({ variables: loginInfo });
+    logOn && logOn(loginInfo);
   };
 
   return !user ? (
