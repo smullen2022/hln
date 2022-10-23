@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/react-hooks';
+import { LOGIN } from '../constants/graphQlContants';
+
+type UserInfo = {
+  username: string;
+  password: string;
+};
 
 export const LoginForm = () => {
   // Implement the login functionality so after logging in the user can be read using the 'user' query.
+  const [loginInfo, setLoginInfo] = useState<UserInfo>({
+    username: '',
+    password: ''
+  });
+  const [login, { data, loading, error }] = useMutation(LOGIN);
   const user = undefined;
+  const submit = (e: any) => {
+    e.preventDefault();
+    login({ variables: loginInfo });
+  };
+
   return !user ? (
-    <form>
+    <form onSubmit={submit}>
       <div style={{ margin: '1rem 10rem' }}>
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>Welcome to the HLN Front-end Challenge</p>
         <p style={{ color: '#007500', fontWeight: 'bold', textAlign: 'left' }}>
@@ -27,9 +44,17 @@ export const LoginForm = () => {
           in <i>src/data</i>.
         </p>
         <label htmlFor="username">Email:</label>
-        <input id="username" name="username" />
+        <input
+          id="username"
+          name="username"
+          onChange={(e) => setLoginInfo((state) => ({ ...state, username: e.target.value }))}
+        />
         <label htmlFor="password">Password:</label>
-        <input id="password" name="password" />
+        <input
+          id="password"
+          name="password"
+          onChange={(e) => setLoginInfo((state) => ({ ...state, password: e.target.value }))}
+        />
         <button type="submit">Login</button>
       </div>
     </form>

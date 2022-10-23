@@ -4,12 +4,13 @@ import styles from './App.module.css';
 import { WoodWarehouse } from '../components/WoodWarehouse';
 import { LoginForm } from '../components/LoginForm';
 import LoggedInUser from '../components/LoggedInUser';
-import { AuthContextProvider } from '../components/authContext/AuthContextProvider';
+import { ApolloProvider } from '@apollo/client';
+import { client } from './client';
 
 const App = () => {
   return (
     <div className={styles.App}>
-      <AuthContextProvider>
+      <ApolloProvider client={client}>
         <header className={styles['App-header']}>
           <img src="/hln-logo.png" className={styles['App-logo']} alt="logo" />
           <LoggedInUser />
@@ -22,7 +23,7 @@ const App = () => {
             </Routes>
           </BrowserRouter>
         </div>
-      </AuthContextProvider>
+      </ApolloProvider>
     </div>
   );
 };

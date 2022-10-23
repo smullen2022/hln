@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "latest",
+    "@apollo/react-hooks": "latest",
     "@faker-js/faker": "^7.5.0",
     "@testing-library/dom": "^8.18.1",
     "@testing-library/jest-dom": "^5.14.1",
