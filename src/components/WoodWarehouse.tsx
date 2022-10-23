@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from './userContext/UserContext';
 
 export interface IWoodWarehouseProps {}
 
 export const WoodWarehouse: React.FC<IWoodWarehouseProps> = () => {
   // After implementing the login functionality determine if the user is logged in via the 'user'
   // query and set the user variable here to cause the instructions for the next step to be displayed.
-  const user = undefined;
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
 
-  return user ? (
+  useEffect(() => {
+    if (!user) navigate('/');
+  }, [navigate, user]);
+
+  return (
     <div>
       <p>
         Now that the user is logged in, present them with a form to add a species of wood to a list, with a price for
@@ -28,5 +35,5 @@ export const WoodWarehouse: React.FC<IWoodWarehouseProps> = () => {
         </div>
       </div>
     </div>
-  ) : null;
+  );
 };

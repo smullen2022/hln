@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
-import { LOGIN } from '../constants/graphQlContants';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from './userContext/UserContext';
 
 type UserInfo = {
@@ -15,12 +14,17 @@ export const LoginForm = () => {
   });
   // Implement the login functionality so after logging in the user can be read using the 'user' query.
   const { user, logOn } = useContext(UserContext);
+  const navigate = useNavigate();
   const submit = (e: any) => {
     e.preventDefault();
     logOn && logOn(loginInfo);
   };
 
-  return !user ? (
+  useEffect(() => {
+    if (user) navigate('/wood-warehouse');
+  }, [navigate, user]);
+
+  return (
     <form onSubmit={submit}>
       <div style={{ margin: '1rem 10rem' }}>
         <p style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>Welcome to the HLN Front-end Challenge</p>
@@ -58,5 +62,5 @@ export const LoginForm = () => {
         <button type="submit">Login</button>
       </div>
     </form>
-  ) : null;
+  );
 };
