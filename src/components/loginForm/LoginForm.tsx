@@ -4,14 +4,10 @@ import { UserContext } from '../userContext/UserContext';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import styles from './LoginForm.module.css';
-
-type UserInfo = {
-  username: string;
-  password: string;
-};
+import { MutationLoginArgs } from '../../types/graphql';
 
 export const LoginForm = () => {
-  const [loginInfo, setLoginInfo] = useState<UserInfo>({
+  const [loginInfo, setLoginInfo] = useState<MutationLoginArgs>({
     username: '',
     password: ''
   });
@@ -32,8 +28,6 @@ export const LoginForm = () => {
   useEffect(() => {
     if (user) navigate('/wood-warehouse');
   }, [navigate, user]);
-
-  console.log(error);
 
   return (
     <div>
