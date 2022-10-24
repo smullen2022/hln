@@ -43,24 +43,11 @@ export const WoodWarehouse: React.FC<IWoodWarehouseProps> = () => {
 
   return (
     <div className={styles.woodWarehousePage}>
+      <h2>Wood Warehouse</h2>
       <p>
-        Now that the user is logged in, present them with a form to add a species of wood to a list, with a price for
-        the unit of wood of that species.
+        Please add your wood species and associated prices as you see fit. You can sort by name or price and delete any
+        species that should no longer be in the list.
       </p>
-      <div>
-        <h3>Wood Warehouse</h3>
-        <div>
-          <span style={{ color: '#007500', fontWeight: 'bold' }}>
-            Create a form to prompt for an individual wood species, and price, and provide a way to submit the new
-            species and price for addition to the warehouse by using the <code>addWoodSpecies</code> mutation.
-          </span>
-        </div>
-        <div style={{ color: '#007500', fontWeight: 'bold' }}>
-          Create a listing of added wood species with their prices using the <code>woodPrices</code> query. Provide the
-          ability to sort types by name and/or price. Also provide the ability to remove types from the list using the{' '}
-          <code>deleteWoodPrice</code> mutation. As a bonus, preserve the sort state between page refreshes.
-        </div>
-      </div>
       <AddWoodForm addNewWoodItem={(newWood) => addWoodPrice({ variables: newWood })} />
       <WoodTable woodItems={woodList} onDelete={(id) => deleteWoodPrice({ variables: { id } })} />
     </div>
