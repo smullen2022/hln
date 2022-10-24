@@ -30,7 +30,7 @@ export const LoginForm = () => {
   }, [navigate, user]);
 
   return (
-    <div>
+    <div className={styles.loginPage}>
       <h2 style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>Welcome to the HLN Front-end Challenge!</h2>
       <form onSubmit={submit}>
         <div className={styles.formBody}>

@@ -17,7 +17,6 @@ export const AddWoodForm: React.FC<AddWoodFormProps> = ({ addNewWoodItem }) => {
   const inputStyle = {
     width: '100%',
     marginRight: '2rem',
-    backgroundColor: '#fff',
     '& .MuiInputBase-root': {
       overflow: 'hidden'
     },

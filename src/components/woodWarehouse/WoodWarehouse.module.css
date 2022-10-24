@@ -6,15 +6,19 @@
   display: flex;
   align-items: center;
   justify-content:space-between;
-  padding: 1rem;
   margin: 2rem 0;
   border-radius: .5rem;
-  box-shadow: 1px 0px 2px #d3cccc;
-  background: #f9f9f9;
-  max-width: 700px;
+  box-shadow: 1px 0px 3px rgb(0 0 0 / 20%);
+  max-width: 750px;
+  overflow: hidden;
 }
 .addWoodFields {
   display: flex;
+  padding: 1rem;
+}
+.addWoodButtonWrap {
+  background: #ee3a43;
+  padding: 1.65rem;  
 }
 
 @media (max-width: 1024px) {
@@ -24,5 +28,9 @@
   .addWoodBody,
   .addWoodFields {
     flex-flow: column wrap;
+  }
+  .addWoodButtonWrap {
+    width: 100%;
+    padding: 1.65rem 0; 
   }
 }
