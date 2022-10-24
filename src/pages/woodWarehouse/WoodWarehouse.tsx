@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../userContext/UserContext';
+import { UserContext } from '../../components/userContext/UserContext';
 import { ADD_WOOD_PRICE, DELETE_WOOD_PRICE, GET_WOOD_PRICES } from '../../constants/graphQlContants';
-import { AddWoodForm } from './AddWoodForm';
-import styles from './WoodWarehouse.module.css';
-import { WoodTable } from './WoodTable';
+import { AddWoodForm } from '../../components/woodWarehouse/AddWoodForm';
+import styles from './styles.module.css';
+import { WoodTable } from '../../components/woodWarehouse/WoodTable';
 import { Wood } from '../../types/graphql';
 
 export interface IWoodWarehouseProps {}

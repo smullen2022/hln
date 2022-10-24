@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../userContext/UserContext';
+import { UserContext } from '../../components/userContext/UserContext';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import styles from './LoginForm.module.css';
+import styles from './styles.module.css';
 import { MutationLoginArgs } from '../../types/graphql';
 
 export const LoginForm = () => {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Button from '@mui/material/Button';
 import { UserContext } from '../userContext/UserContext';
-import styles from './LoggedInUser.module.css';
+import styles from './styles.module.css';
 
 const LoggedInUser = () => {
   const { user, logOut } = useContext(UserContext);

@@ -7,7 +7,7 @@
 .formBody {
   margin: auto;
   max-width: 350px;
-  border-radius: 0.25rem;
+  border-radius: .5rem;
   overflow: hidden;
   box-shadow: var(--box-shadow);
 }
