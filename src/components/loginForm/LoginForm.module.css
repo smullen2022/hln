@@ -9,7 +9,7 @@
   max-width: 350px;
   border-radius: 0.25rem;
   overflow: hidden;
-  box-shadow: 1px 0px 3px rgb(0 0 0 / 20%);
+  box-shadow: var(--box-shadow);
 }
 .formFields {
   padding: 1rem 2rem 0 2rem; 
@@ -18,7 +18,7 @@
   margin-top: 0;
 }
 .formFooter {
-  background: #ee3a43;
+  background: var(--color-red);
   padding: 1rem;
   display: flex;
   justify-content: flex-end;

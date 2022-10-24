@@ -8,20 +8,32 @@
   justify-content:space-between;
   margin: 2rem 0;
   border-radius: .5rem;
-  box-shadow: 1px 0px 3px rgb(0 0 0 / 20%);
+  box-shadow: var(--box-shadow);
   max-width: 750px;
   overflow: hidden;
+  position: relative;
 }
 .addWoodFields {
   display: flex;
   padding: 1rem;
 }
 .addWoodButtonWrap {
-  background: #ee3a43;
-  padding: 1.65rem;  
+  background: var(--color-red);
+  padding: 1.65rem;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) {  
+  .addWoodFields {
+    flex-flow: column wrap;
+  }
+}
+@media (max-width: 650px) {
   .addWoodBody {
     max-width: 300px;
   }
@@ -31,6 +43,7 @@
   }
   .addWoodButtonWrap {
     width: 100%;
-    padding: 1.65rem 0; 
+    padding: 1.65rem 0;
+    position: relative;
   }
 }
