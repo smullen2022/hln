@@ -35,6 +35,10 @@ export const AddWoodForm: React.FC<AddWoodFormProps> = ({ addNewWoodItem }) => {
       woodSpecies: addWood?.woodSpecies,
       price: parseFloat(addWood?.price as string)
     } as MutationAddWoodPriceArgs);
+    setAddWood({
+      price: '0.00',
+      woodSpecies: ''
+    });
   };
 
   return (
@@ -43,6 +47,7 @@ export const AddWoodForm: React.FC<AddWoodFormProps> = ({ addNewWoodItem }) => {
         <div className={styles.addWoodFields}>
           <TextField
             id="species"
+            value={addWood?.woodSpecies}
             label="Species"
             sx={inputStyle}
             onChange={(e) => setAddWood((state) => ({ ...state, woodSpecies: e.target.value }))}
