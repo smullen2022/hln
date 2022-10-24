@@ -11,7 +11,7 @@ import { Wood } from '../../types/graphql';
 export interface IWoodWarehouseProps {}
 
 export const WoodWarehouse: React.FC<IWoodWarehouseProps> = () => {
-  const { user } = useContext(UserContext);
+  const { user, loaded } = useContext(UserContext);
   const navigate = useNavigate();
   const { data: currentWoodList } = useQuery(GET_WOOD_PRICES);
   const [addWoodPrice, { data: addWood }] = useMutation(ADD_WOOD_PRICE);
@@ -19,8 +19,8 @@ export const WoodWarehouse: React.FC<IWoodWarehouseProps> = () => {
   const [woodList, setWoodList] = useState<Wood[]>([]);
 
   useEffect(() => {
-    if (!user) navigate('/');
-  }, [navigate, user]);
+    if (loaded && !user) navigate('/');
+  }, [navigate, user, loaded]);
 
   useEffect(() => {
     if (currentWoodList) setWoodList(currentWoodList.woodPrices);
