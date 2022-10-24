@@ -13,7 +13,7 @@ export const LoginForm = () => {
   });
   const { user, logOn, error } = useContext(UserContext);
   const navigate = useNavigate();
-  const submit = (e: any) => {
+  const submit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     logOn && logOn(loginInfo);
   };
