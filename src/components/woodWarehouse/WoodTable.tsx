@@ -23,8 +23,10 @@ export const WoodTable: React.FC<WoodTableProps> = ({ woodItems, onDelete }) => 
     { key: 'woodSpecies', label: 'Wood Species' },
     { key: 'price', label: 'Price' }
   ];
-  const [order, setOrder] = useState<SortOrder>('asc');
-  const [orderBy, setOrderBy] = useState<OrderBy>('woodSpecies');
+  const storedSort = window.sessionStorage.getItem('sorting');
+  const parsedStoredSort = storedSort && JSON.parse(storedSort);
+  const [order, setOrder] = useState<SortOrder>(parsedStoredSort?.order || 'asc');
+  const [orderBy, setOrderBy] = useState<OrderBy>(parsedStoredSort?.orderBy || 'woodSpecies');
   const [sortedWoodItems, setSortedWoodItems] = useState<Wood[]>();
 
   const sortComparison = (a: Wood, b: Wood, orderBy: OrderBy) =>
@@ -32,8 +34,10 @@ export const WoodTable: React.FC<WoodTableProps> = ({ woodItems, onDelete }) => 
 
   const handleSort = (key: OrderBy) => {
     const sameKeyAsc = orderBy === key && order === 'asc';
+    const newOrder = sameKeyAsc ? 'desc' : 'asc';
     setOrder(sameKeyAsc ? 'desc' : 'asc');
     setOrderBy(key);
+    window.sessionStorage.setItem('sorting', JSON.stringify({ order: newOrder, orderBy: key }));
   };
 
   useEffect(() => {
