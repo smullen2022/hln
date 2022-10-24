@@ -11,15 +11,12 @@ import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import { Wood } from '../../types/graphql';
+import { OrderBy, SortOrder } from './types';
 
 interface WoodTableProps {
   woodItems: Wood[];
   onDelete: (id: number) => void;
 }
-
-type SortOrder = 'asc' | 'desc';
-
-type OrderBy = 'price' | 'woodSpecies';
 
 export const WoodTable: React.FC<WoodTableProps> = ({ woodItems, onDelete }) => {
   const headers: { key: OrderBy; label: string }[] = [
@@ -30,19 +27,12 @@ export const WoodTable: React.FC<WoodTableProps> = ({ woodItems, onDelete }) => 
   const [orderBy, setOrderBy] = useState<OrderBy>('woodSpecies');
   const [sortedWoodItems, setSortedWoodItems] = useState<Wood[]>();
 
-  const sortComparison = (a: Wood, b: Wood, orderBy: OrderBy) => {
-    if (b[orderBy] < a[orderBy]) {
-      return -1;
-    }
-    if (b[orderBy] > a[orderBy]) {
-      return 1;
-    }
-    return 0;
-  };
+  const sortComparison = (a: Wood, b: Wood, orderBy: OrderBy) =>
+    b[orderBy] < a[orderBy] ? -1 : b[orderBy] > a[orderBy] ? 1 : 0;
 
   const handleSort = (key: OrderBy) => {
-    const isAsc = orderBy === key && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
+    const sameKeyAsc = orderBy === key && order === 'asc';
+    setOrder(sameKeyAsc ? 'desc' : 'asc');
     setOrderBy(key);
   };
 

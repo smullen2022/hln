@@ -2,18 +2,13 @@ import React, { useState } from 'react';
 import { MutationAddWoodPriceArgs } from '../../types/graphql';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
 import styles from './WoodWarehouse.module.css';
 import { FormControl, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
+import { AddWood } from './types';
 
 interface AddWoodFormProps {
   addNewWoodItem: (addWood: MutationAddWoodPriceArgs) => void;
 }
-
-type AddWood = {
-  woodSpecies?: MutationAddWoodPriceArgs['woodSpecies'];
-  price?: string;
-};
 
 export const AddWoodForm: React.FC<AddWoodFormProps> = ({ addNewWoodItem }) => {
   const [addWood, setAddWood] = useState<AddWood>({
