@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MutationAddWoodPriceArgs } from '../../types/graphql';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
 import styles from './WoodWarehouse.module.css';
 import { FormControl, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 
